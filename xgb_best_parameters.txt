@@ -1,0 +1,5 @@
+Best F1: 0.8972972972972973
+Best Params: {'n_estimators': 200, 'max_depth': 5, 'learning_rate': 0.1, 'scale_pos_weight': 50, 'threshold': np.float64(0.7500000000000002)}
+Best Threshold: 0.7500000000000002
+Precision: 0.9540229885057471
+Recall: 0.8469387755102041

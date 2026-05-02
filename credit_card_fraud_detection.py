@@ -637,3 +637,12 @@ plt.ylabel("Score")
 plt.title("Precision vs Recall vs Threshold")
 plt.legend()
 # plt.show()
+
+# Save final production artifact
+artifact = {
+    "model": best_model_grid_pipeline,
+    "threshold": best_threshold
+}
+
+joblib.dump(artifact, "fraud_pipeline.pkl")
+print("✅ fraud_pipeline.pkl saved successfully!")
