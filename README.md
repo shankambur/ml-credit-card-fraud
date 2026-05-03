@@ -1,69 +1,134 @@
-# Credit Card Fraud Detection
+# 💳 Credit Card Fraud Detection System
 
-## Problem Statement
+An end-to-end Machine Learning fraud detection application built using:
 
-Credit card fraud is a highly imbalanced classification problem where fraudulent transactions are rare compared to legitimate ones. The goal is to accurately detect fraud while minimizing false positives.
-
----
-
-## Dataset
-
-* Source: Kaggle Credit Card Fraud Dataset
-* Highly imbalanced dataset (fraud < 1%)
+* XGBoost (Tuned Model)
+* FastAPI (Backend API)
+* Streamlit (Frontend Dashboard)
 
 ---
 
-## Approach
+## 🚀 Project Overview
 
-### 1. Data Preprocessing
+This project detects fraudulent credit card transactions using a tuned XGBoost classifier trained on highly imbalanced transaction data.
 
-* Handled class imbalance using **SMOTE**
-* Feature scaling applied
+The system includes:
 
-### 2. Model Building
+### Backend:
 
-* Logistic Regression
-* Random Forest
-* XGBoost (final model)
+* FastAPI deployment
+* Fraud prediction API
+* Health check endpoint
 
-### 3. Model Evaluation
+### Frontend:
 
-* Precision
-* Recall
-* F1-score
-* Confusion Matrix
-
----
-
-## Final Model
-
-* **XGBoost Classifier**
-* Optimized using GridSearchCV
-* Handles imbalance effectively
+* Streamlit dashboard
+* Fraud/legitimate sample loaders
+* Real-time predictions
+* Risk classification
+* Prediction history
+* Model performance dashboard
 
 ---
 
-## Key Learnings
+## 📊 Final Model Performance (Threshold = 0.75)
 
-* Importance of handling imbalanced datasets
-* Trade-off between precision and recall
-* Model tuning improves performance significantly
+| Metric    | Score  |
+| --------- | ------ |
+| Accuracy  | 99.97% |
+| Precision | 95.40% |
+| Recall    | 84.69% |
+| F1 Score  | 89.73% |
 
 ---
 
-## How to Run
+## 🛠️ Tech Stack
+
+* Python
+* XGBoost
+* Scikit-learn
+* FastAPI
+* Streamlit
+* Pandas
+* NumPy
+* SHAP
+* Joblib
+
+---
+
+## 📂 Project Structure
 
 ```bash
-python credit_card_fraud_detection.py
+ml-credit-card-fraud/
+│
+├── cc_fraud_detection_api.py
+├── cc_fraud_detection_streamlit_app.py
+├── xgb_bp_model.pkl
+├── requirements.txt
+├── start.sh
+└── README.md
 ```
 
 ---
 
-## Tech Stack
+## ▶️ Run Locally
 
-* Python
-* Pandas, NumPy
-* Scikit-learn
-* XGBoost
-* Imbalanced-learn (SMOTE)
+### 1. Install dependencies
 
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Start API
+
+```bash
+uvicorn cc_fraud_detection_api:app --reload
+```
+
+### 3. Start Streamlit App
+
+```bash
+streamlit run cc_fraud_detection_streamlit_app.py
+```
+
+---
+
+## 🌐 Deployment
+
+### start.sh
+
+```bash
+#!/bin/bash
+uvicorn cc_fraud_detection_api:app --host 0.0.0.0 --port 8000 &
+streamlit run cc_fraud_detection_streamlit_app.py --server.port $PORT --server.address 0.0.0.0
+```
+
+---
+
+## 🎯 Key Features
+
+* Fraud probability scoring
+* Risk classification
+* Fraud threshold tuning
+* API deployment
+* Interactive UI
+* Prediction history
+* Model metrics dashboard
+* Demo-ready sample transactions
+
+---
+
+## 📌 Future Enhancements
+
+* SHAP explainability
+* Batch CSV prediction
+* Docker containerization
+* Cloud deployment (Render/AWS)
+* Authentication
+* Monitoring dashboards
+
+---
+
+## 👨‍💻 Author
+
+Built as part of advanced AI/ML engineering portfolio development.

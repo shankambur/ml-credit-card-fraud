@@ -1,4 +1,7 @@
 creditcard.csv
-*.pkl
 __pycache__/
 .ipynb_checkpoints/
+.env
+*.pyc
+*.pkl
+!xgb_bp_model.pkl

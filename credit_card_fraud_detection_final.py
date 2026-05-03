@@ -7,10 +7,10 @@
 # Challenge:
 # Highly imbalanced dataset (fraud is rare!)
 # Key metric:
-# ❌ Accuracy (misleading)
-# ✅ Precision, Recall, F1-score (important)
+#  Accuracy (misleading)
+#  Precision, Recall, F1-score (important)
 
-# ✅ Phase 2: Dataset
+#  Phase 2: Dataset
 
 # I’ll use the famous dataset:
 
@@ -726,7 +726,7 @@ print("y_train_sm.value_counts():\n",y_train_sm.value_counts())
 
 # "I used class_weight to handle class imbalance by assigning higher importance to fraud cases, ensuring the model doesn't ignore minority class."
 
-# 🌲 Step 3A: Train Model (Start with Logistic Regression)
+# Step 3A: Train Model (Start with Logistic Regression)
 
 print("################################## Start : Train Model with Logistic Regression without SMOTE")
 from sklearn.linear_model import LogisticRegression
@@ -738,9 +738,9 @@ lr = LogisticRegression(
     random_state=42
 )
 
-# lr.fit(X_train, y_train) #. <==== WITHOUT SMOTE
-# joblib.dump(lr,"lr_model.pkl")
-# print("lr_model.pkl saved")
+lr.fit(X_train, y_train) #. <==== WITHOUT SMOTE
+joblib.dump(lr,"lr_model.pkl")
+print("lr_model.pkl saved")
 lr = joblib.load("lr_model.pkl")
 y_pred_lr = lr.predict(X_test)
 y_prob_lr = lr.predict_proba(X_test)[:, 1]

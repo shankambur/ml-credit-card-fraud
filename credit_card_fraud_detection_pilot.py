@@ -484,11 +484,52 @@ print("df['V8'].max()\n",df['V8'].max())
 # “Scaling centers data around 0 with unit variance, but outliers can still produce large values”
 # “StandardScaler normalizes features to zero mean and unit variance, but it does not bound values, so outliers can still produce large scaled values.”
 
-
-
-
 # Now: Handling Imbalanced Data (MOST IMPORTANT PART)
 # Step 1: Split the data (VERY IMPORTANT)
+
+
+# get test data for API
+import json
+
+# print("**** fraud transaction 0")
+# df["Amount"] = df["scaled_amount"]
+# df["Time"] = df["scaled_time"]
+# fraud_sample_0 = df[df["Class"] == 1].iloc[0]
+# # Remove  column
+# fraud_sample_0 = fraud_sample_0.drop("scaled_amount")
+# fraud_sample_0 = fraud_sample_0.drop("scaled_time")
+# # Convert to JSON
+# fraud_sample_0_json = fraud_sample_0.to_dict()
+# print("fraud_sample_0_json:\n",json.dumps(fraud_sample_0_json, indent=2))
+
+# print("**** fraud transaction 1")
+# fraud_sample_1 = df[df["Class"] == 1].iloc[10]
+# # Remove target column
+# fraud_sample_1 = fraud_sample_1.drop("scaled_amount")
+# fraud_sample_1 = fraud_sample_1.drop("scaled_time")
+# # Convert to JSON
+# fraud_sample_1_json = fraud_sample_1.to_dict()
+# print("fraud_sample_1_json:\n",json.dumps(fraud_sample_1_json, indent=2))
+
+# print("**** Legitimate transaction 0")
+# Legitimate_sample_0 = df[df["Class"] == 0].iloc[0]
+# # Remove target column
+# Legitimate_sample_0 = Legitimate_sample_0.drop("scaled_amount")
+# Legitimate_sample_0 = Legitimate_sample_0.drop("scaled_time")
+# # Convert to JSON
+# Legitimate_sample_0_json = Legitimate_sample_0.to_dict()
+# print("Legitimate_sample_0_json:\n",json.dumps(Legitimate_sample_0_json, indent=2))
+
+# print("**** Legitimate transaction 1")
+# Legitimate_sample_1 = df[df["Class"] == 0].iloc[1]
+# # Remove target column
+# Legitimate_sample_1 = Legitimate_sample_1.drop("scaled_amount")
+# Legitimate_sample_1 = Legitimate_sample_1.drop("scaled_time")
+# # Convert to JSON
+# Legitimate_sample_1_json = Legitimate_sample_1.to_dict()
+# print("Legitimate_sample_1_json:\n",json.dumps(Legitimate_sample_1_json, indent=2))
+
+# sys.exit()
 
 
 from sklearn.model_selection import train_test_split
@@ -747,7 +788,7 @@ y_prob_lr = lr.predict_proba(X_test)[:, 1]
 print("y_pred_lr\n",y_pred_lr)
 print("y_prob_lr\n",y_prob_lr)
 
-from sklearn.metrics import precision_score, recall_score
+from sklearn.metrics import precision_score, recall_score, accuracy_score
 
 thresholds = np.arange(0.1, 0.9, 0.05)
 
@@ -1612,6 +1653,7 @@ best_threshold = 0
 best_f1 = 0
 best_precision = 0
 best_recall = 0
+accuracy = 0
 
 for t in thresholds:
     # print("running for threshold ",t)
@@ -1631,11 +1673,13 @@ for t in thresholds:
             best_threshold = t
             best_precision = precision
             best_recall = recall
+            accuracy = accuracy_score(y_test, y_pred_t)
 
 print("\nBest Threshold (F1 optimized):", best_threshold)
 print("Precision:", best_precision)
 print("Recall:", best_recall)
 print("F1-score:", best_f1)
+print("Accuracy:",accuracy)
 
 # Best Threshold (F1 optimized): 0.7500000000000002
 # Precision: 0.9540229885057471
@@ -1808,9 +1852,9 @@ print(scores.mean())
 # So:
 # Model trains and tests 3 times.
 
-print("################ Final mode lExit")
+print("################ Final model Exit")
 
-
+sys.exit()
 
 # SHAP (if I go advanced)
 
