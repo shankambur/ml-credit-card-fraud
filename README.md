@@ -103,6 +103,11 @@ uvicorn cc_fraud_detection_api:app --host 0.0.0.0 --port 8000 &
 streamlit run cc_fraud_detection_streamlit_app.py --server.port $PORT --server.address 0.0.0.0
 ```
 
+## API endpoints
+API_URL = https://ml-credit-card-fraud.onrender.com/docs
+### POST /predict
+
+
 ---
 
 ## 🎯 Key Features

@@ -129,3 +129,6 @@ def get_metrics():
     # uvicorn filename_without_py:fastapi_object
     # uvicorn cc_fraud_detection_api:app --reload
     # http://127.0.0.1:8000/docs
+
+    # Live
+    # https://ml-credit-card-fraud.onrender.com
