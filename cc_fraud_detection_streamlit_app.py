@@ -93,7 +93,7 @@ legit_sample = {
 # -----------------------------
 
 st.title("💳 Credit Card Fraud Detection App")
-st.write("Paste transaction JSON, load sample transactions, and predict fraud.")
+st.write("Load sample transactions(JSON), and predict fraud.")
 
 
 # -----------------------------
@@ -179,7 +179,7 @@ with col3:
 # JSON Input
 # -----------------------------
 json_input = st.text_area(
-    "Paste transaction JSON here:",
+    "Enter/Load transaction(JSON) here:",
     key="json_input",
     height=350
 )
